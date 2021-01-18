@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CitySearch from './Components/CitySearch';
 import ZipSearch from './Components/ZipSearch'
+import { ContextProvider } from './Context';
 
 class App extends Component {
   handleClick () {
@@ -9,15 +10,17 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Zip Code Search</h2>
+      <ContextProvider>
+        <div className="App">
+          <div className="App-header">
+            <h2>Zip Code Search</h2>
+          </div>
+          <ZipSearch/>
+          <br/>
+          <CitySearch/>
+          <br/>
         </div>
-        <ZipSearch/>
-        <br/>
-        <CitySearch/>
-        <br/>
-      </div>
+      </ContextProvider>
     );
   }
 }
